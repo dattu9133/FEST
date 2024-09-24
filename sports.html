@@ -221,10 +221,10 @@
         const img = images[index];
         if (img.style.opacity === '0') {
           img.style.opacity = '1'; // Show the image
-          wrapper.classList.remove('hidden');
+          wrapper.classList.remove('blank'); // Remove blank background
         } else {
           img.style.opacity = '0'; // Hide the image
-          wrapper.classList.add('hidden');
+          wrapper.classList.add('blank'); // Add blank background
         }
       });
     });

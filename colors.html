@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6x6 Image Grid with Toggle</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #12c2e9;
+      /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    #toggleButton {
+      padding: 10px 20px;
+      font-size: 20px;
+      border: none;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    #toggleButton:hover {
+      background-color: #555;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 100px);
+      /* 6 columns of 100px each */
+      grid-gap: 10px;
+      transition: opacity 0.5s ease;
+    }
+
+    .image-wrapper {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .image-wrapper img {
+      object-fit: fill;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+
+    .hidden {
+      opacity: 0;
+    }
+
+    .blank {
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <button id="toggleButton">Toggle Images</button>
+    <div class="image-grid" id="imageGrid">
+      <!-- Each image appears 4 times in a grid -->
+      <div class="image-wrapper"><img src="images\colors\b.png" alt="Image 1" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\g.png" alt="Image 2" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\green.png" alt="Image 3" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\m.png" alt="Image 4" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\o.png" alt="Image 5" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\p.png" alt="Image 6" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\w.png" alt="Image 7" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\r.png" alt="Image 8" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\pink.png" alt="Image 9" class="image"></div>
+
+      <!-- Each image's duplicate placement -->
+      <div class="image-wrapper"><img src="images\colors\green.png" alt="Image 3" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\p.png" alt="Image 6" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\b.png" alt="Image 1" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\w.png" alt="Image 7" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\m.png" alt="Image 4" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\o.png" alt="Image 5" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\pink.png" alt="Image 9" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\r.png" alt="Image 8" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\g.png" alt="Image 2" class="image"></div>
+
+      <div class="image-wrapper"><img src="images\colors\b.png" alt="Image 1" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\p.png" alt="Image 6" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\green.png" alt="Image 3" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\m.png" alt="Image 4" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\o.png" alt="Image 5" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\w.png" alt="Image 7" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\r.png" alt="Image 8" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\pink.png" alt="Image 9" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\g.png" alt="Image 2" class="image"></div>
+
+      <div class="image-wrapper"><img src="images\colors\o.png" alt="Image 5" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\m.png" alt="Image 4" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\b.png" alt="Image 1" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\p.png" alt="Image 6" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\green.png" alt="Image 3" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\w.png" alt="Image 7" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\pink.png" alt="Image 9" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\r.png" alt="Image 8" class="image"></div>
+      <div class="image-wrapper"><img src="images\colors\g.png" alt="Image 2" class="image"></div>
+    </div>
+  </div>
+
+  <script>
+    const toggleButton = document.getElementById('toggleButton');
+    const imageWrappers = document.querySelectorAll('.image-wrapper');
+    const images = document.querySelectorAll('.image');
+
+    toggleButton.addEventListener('click', () => {
+      imageWrappers.forEach((wrapper, index) => {
+        const img = images[index];
+        if (img.style.opacity === '0') {
+          img.style.opacity = '1'; // Show the image
+          wrapper.classList.remove('blank'); // Remove blank background
+        } else {
+          img.style.opacity = '0'; // Hide the image
+          wrapper.classList.add('blank'); // Add blank background
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
